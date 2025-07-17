@@ -1,99 +1,106 @@
-# XSS Detection System using Machine Learning
+# Sistem Deteksi XSS Menggunakan Machine Learning
 
-A comprehensive Python program for detecting Cross-Site Scripting (XSS) attacks using machine learning models XGBoost and LightGBM with SMOTE for handling imbalanced data.
+Program Python komprehensif untuk mendeteksi serangan Cross-Site Scripting (XSS) menggunakan model machine learning XGBoost dan LightGBM dengan SMOTE untuk menangani data yang tidak seimbang.
 
-## 🎯 Overview
+## 🎯 Gambaran Umum
 
-This project implements a robust XSS detection system that compares the performance of two powerful machine learning models:
-- **XGBoost**: Gradient boosting framework
-- **LightGBM**: Gradient boosting framework optimized for speed and memory efficiency
+Proyek ini mengimplementasikan sistem deteksi XSS yang robust dengan membandingkan performa dua model machine learning yang powerful:
+- **XGBoost**: Framework gradient boosting
+- **LightGBM**: Framework gradient boosting yang dioptimalkan untuk kecepatan dan efisiensi memori
 
-The system uses SMOTE (Synthetic Minority Oversampling Technique) to handle imbalanced datasets and includes comprehensive feature engineering specifically designed for XSS detection.
+Sistem ini menggunakan SMOTE (Synthetic Minority Oversampling Technique) untuk menangani dataset yang tidak seimbang dan mencakup feature engineering komprehensif yang dirancang khusus untuk deteksi XSS.
 
 ## 📊 Dataset
 
-The system is designed to work with the **Cross-Site Scripting (XSS) Dataset for Deep Learning** from Kaggle:
+Sistem ini dirancang untuk bekerja dengan **Dataset Cross-Site Scripting (XSS) untuk Deep Learning** dari Kaggle:
 - **URL**: https://www.kaggle.com/datasets/syedsaqlainhussain/cross-site-scripting-xss-dataset-for-deep-learning
-- **Format**: CSV with text samples and binary labels (XSS vs Normal)
+- **Format**: CSV dengan sampel teks dan label biner (XSS vs Normal)
 
-## 🚀 Features
+## 🚀 Fitur Utama
 
-### Machine Learning Models
-- **XGBoost Classifier**: High-performance gradient boosting
-- **LightGBM Classifier**: Fast and memory-efficient gradient boosting
-- **Random Forest**: Ensemble learning baseline
-- **SMOTE Integration**: Handles imbalanced data effectively
+### Model Machine Learning
+- **XGBoost Classifier**: Gradient boosting berperforma tinggi
+- **LightGBM Classifier**: Gradient boosting yang cepat dan efisien memori
+- **Random Forest**: Baseline ensemble learning
+- **Integrasi SMOTE**: Menangani data yang tidak seimbang secara efektif
 
 ### Feature Engineering
-- **Manual Features**: XSS-specific patterns, HTML tags, special characters
-- **Text Features**: TF-IDF vectorization with n-grams
-- **Statistical Features**: Text length, word count, entropy
-- **Security Features**: Suspicious keywords, URL patterns, IP addresses
+- **Fitur Manual**: Pola khusus XSS, tag HTML, karakter khusus
+- **Fitur Teks**: Vektorisasi TF-IDF dengan n-gram
+- **Fitur Statistik**: Panjang teks, jumlah kata, entropi
+- **Fitur Keamanan**: Kata kunci mencurigakan, pola URL, alamat IP
 
-### Comprehensive Analysis
-- **Exploratory Data Analysis**: Data distribution, class balance, text statistics
-- **Model Comparison**: Performance metrics across all models
-- **Visualizations**: ROC curves, confusion matrices, feature importance
-- **Hyperparameter Tuning**: Grid search optimization
+### Analisis Komprehensif
+- **Analisis Data Eksploratori**: Distribusi data, keseimbangan kelas, statistik teks
+- **Perbandingan Model**: Metrik performa di semua model
+- **Visualisasi**: Kurva ROC, confusion matrix, feature importance
+- **Hyperparameter Tuning**: Optimasi grid search
 
-## 📁 Project Structure
+## 📁 Struktur Proyek
 
 ```
 xss_ml/
-├── requirements.txt          # Python dependencies
-├── xss_detection.py         # Main XSS detection system
-├── data_loader.py           # Data loading and preprocessing
-├── run_xss_detection.py     # Complete workflow example
-├── README.md                # This file
-└── Generated Files:
-    ├── xss_detection_models.pkl    # Trained models
-    ├── class_distribution.png      # Data visualization
-    ├── model_evaluation.png        # Model comparison
-    ├── xss_data_analysis.png       # Data analysis plots
-    ├── xss_wordclouds.png          # Word clouds
-    └── xss_detection_report.txt    # Summary report
+├── requirements.txt          # Dependensi Python
+├── xss_detection.py         # Sistem deteksi XSS utama
+├── data_loader.py           # Pemuatan dan preprocessing data
+├── run_xss_detection.py     # Contoh workflow lengkap
+├── test_installation.py     # Tes validasi sistem
+├── README.md                # File ini
+└── File yang Dihasilkan:
+    ├── xss_detection_models.pkl    # Model terlatih
+    ├── class_distribution.png      # Visualisasi data
+    ├── model_evaluation.png        # Perbandingan model
+    ├── xss_data_analysis.png       # Plot analisis data
+    ├── xss_wordclouds.png          # Word cloud
+    └── xss_detection_report.txt    # Laporan ringkasan
 ```
 
-## 🛠️ Installation
+## 🛠️ Instalasi
 
-1. **Clone the repository**:
+1. **Clone repository**:
 ```bash
 git clone <repository-url>
 cd xss_ml
 ```
 
-2. **Install dependencies**:
+2. **Install dependensi**:
 ```bash
+# Buat virtual environment
+python3 -m venv xss_env
+source xss_env/bin/activate
+
+# Install paket yang diperlukan
 pip install -r requirements.txt
 ```
 
-3. **Download NLTK data** (automatic on first run):
+3. **Download data NLTK** (otomatis saat pertama kali dijalankan):
 ```python
 import nltk
 nltk.download('punkt')
 nltk.download('stopwords')
 ```
 
-## 🎮 Usage
+## 🎮 Cara Penggunaan
 
-### Quick Start
+### Memulai Cepat
 
-Run the complete XSS detection pipeline:
+Jalankan pipeline deteksi XSS lengkap:
 ```bash
-python run_xss_detection.py
+source xss_env/bin/activate
+python3 run_xss_detection.py
 ```
 
-### Using Your Own Dataset
+### Menggunakan Dataset Sendiri
 
-1. **Download the Kaggle dataset**
-2. **Update the data path** in `run_xss_detection.py`:
+1. **Download dataset Kaggle**
+2. **Update path data** di `run_xss_detection.py`:
 ```python
-df = data_loader.load_kaggle_dataset('path_to_your_dataset.csv')
+df = data_loader.load_kaggle_dataset('path_ke_dataset_anda.csv')
 ```
 
-### Individual Components
+### Komponen Individual
 
-**Data Loading and Exploration**:
+**Pemuatan dan Eksplorasi Data**:
 ```python
 from data_loader import XSSDataLoader
 
@@ -102,7 +109,7 @@ df = loader.load_kaggle_dataset('dataset.csv')
 loader.explore_dataset(df)
 ```
 
-**XSS Detection**:
+**Deteksi XSS**:
 ```python
 from xss_detection import XSSDetector
 
@@ -112,37 +119,37 @@ results = detector.train_models(X, y)
 detector.evaluate_models(results)
 ```
 
-**Making Predictions**:
+**Membuat Prediksi**:
 ```python
-# Load trained models
+# Muat model terlatih
 detector.load_models('xss_detection_models.pkl')
 
-# Predict XSS
+# Prediksi XSS
 text = '<script>alert("XSS")</script>'
 prediction = detector.predict(text, 'XGBoost')
-print(f"Prediction: {prediction['prediction']}")
+print(f"Prediksi: {prediction['prediction']}")
 print(f"Confidence: {prediction['confidence']:.3f}")
 ```
 
-## 📈 Model Performance
+## 📈 Performa Model
 
-The system evaluates models using multiple metrics:
+Sistem mengevaluasi model menggunakan berbagai metrik:
 
-- **Accuracy**: Overall correctness
+- **Accuracy**: Ketepatan keseluruhan
 - **Precision**: True positives / (True positives + False positives)
 - **Recall**: True positives / (True positives + False negatives)
-- **F1-Score**: Harmonic mean of precision and recall
-- **ROC AUC**: Area under the ROC curve
+- **F1-Score**: Rata-rata harmonik dari precision dan recall
+- **ROC AUC**: Area di bawah kurva ROC
 
-### Expected Performance
-With the sample dataset, typical performance ranges:
+### Performa yang Diharapkan
+Dengan dataset sampel, rentang performa tipikal:
 - **XGBoost**: F1-Score ~0.95-0.98
 - **LightGBM**: F1-Score ~0.94-0.97
 - **Random Forest**: F1-Score ~0.92-0.95
 
-## 🔧 Configuration
+## 🔧 Konfigurasi
 
-### Model Parameters
+### Parameter Model
 
 **XGBoost**:
 ```python
@@ -166,7 +173,7 @@ lgb.LGBMClassifier(
 
 ### Feature Engineering
 
-**TF-IDF Parameters**:
+**Parameter TF-IDF**:
 ```python
 TfidfVectorizer(
     max_features=5000,
@@ -176,26 +183,26 @@ TfidfVectorizer(
 )
 ```
 
-**SMOTE Parameters**:
+**Parameter SMOTE**:
 ```python
 SMOTE(random_state=42)
 ```
 
-## 📊 Visualizations
+## 📊 Visualisasi
 
-The system generates several visualizations:
+Sistem menghasilkan beberapa visualisasi:
 
-1. **Class Distribution**: Pie chart showing XSS vs Normal samples
-2. **Text Statistics**: Length and word count distributions
-3. **Model Comparison**: Performance metrics comparison
-4. **ROC Curves**: Model performance visualization
-5. **Confusion Matrix**: Classification accuracy breakdown
-6. **Feature Importance**: Most important features for detection
-7. **Word Clouds**: Visual representation of XSS and normal text
+1. **Distribusi Kelas**: Diagram pie menunjukkan sampel XSS vs Normal
+2. **Statistik Teks**: Distribusi panjang dan jumlah kata
+3. **Perbandingan Model**: Visualisasi metrik performa
+4. **Kurva ROC**: Visualisasi performa model
+5. **Confusion Matrix**: Breakdown akurasi klasifikasi
+6. **Feature Importance**: Fitur terpenting untuk deteksi
+7. **Word Cloud**: Representasi visual teks XSS dan normal
 
-## 🧪 Testing
+## 🧪 Pengujian
 
-### Sample XSS Patterns Detected
+### Contoh Pola XSS yang Terdeteksi
 - `<script>alert("XSS")</script>`
 - `javascript:alert(1)`
 - `<img src=x onerror=alert(1)>`
@@ -204,66 +211,66 @@ The system generates several visualizations:
 - `document.cookie`
 - `window.location`
 
-### Interactive Testing Mode
-The system includes an interactive mode for real-time testing:
+### Mode Pengujian Interaktif
+Sistem mencakup mode interaktif untuk pengujian real-time:
 ```bash
-python run_xss_detection.py
-# Choose 'y' when prompted for interactive mode
+python3 run_xss_detection.py
+# Pilih 'y' saat diminta untuk mode interaktif
 ```
 
-## 🔍 Feature Details
+## 🔍 Detail Fitur
 
-### Manual Features (40+ features)
-- **XSS Patterns**: Script tags, JavaScript protocols, event handlers
-- **HTML Elements**: Dangerous tags like iframe, object, embed
-- **Special Characters**: Angle brackets, quotes, parentheses
-- **Suspicious Keywords**: alert, eval, document, window
-- **Statistical**: Text entropy, URL count, IP addresses
+### Fitur Manual (40+ fitur)
+- **Pola XSS**: Tag script, protokol JavaScript, event handler
+- **Elemen HTML**: Tag berbahaya seperti iframe, object, embed
+- **Karakter Khusus**: Kurung sudut, tanda kutip, tanda kurung
+- **Kata Kunci Mencurigakan**: alert, eval, document, window
+- **Statistik**: Entropi teks, jumlah URL, alamat IP
 
-### TF-IDF Features (5000 features)
-- **N-grams**: 1-gram, 2-gram, 3-gram combinations
-- **Stop Words**: Removed for better signal
-- **Frequency Filtering**: Min/max document frequency thresholds
+### Fitur TF-IDF (5000 fitur)
+- **N-gram**: Kombinasi 1-gram, 2-gram, 3-gram
+- **Stop Words**: Dihapus untuk sinyal yang lebih baik
+- **Filter Frekuensi**: Ambang batas frekuensi dokumen min/max
 
-## 🚨 Security Considerations
+## 🚨 Pertimbangan Keamanan
 
-1. **False Positives**: May flag legitimate code snippets
-2. **Evasion**: Sophisticated attacks may bypass detection
-3. **Updates**: Regular retraining needed for new attack patterns
-4. **Performance**: Real-time deployment considerations
+1. **False Positive**: Mungkin menandai potongan kode yang sah
+2. **Evasion**: Serangan canggih mungkin melewati deteksi
+3. **Update**: Perlu pelatihan ulang reguler untuk pola serangan baru
+4. **Performa**: Pertimbangan deployment real-time
 
-## 🤝 Contributing
+## 🤝 Kontribusi
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
+1. Fork repository
+2. Buat branch fitur
+3. Lakukan perubahan
+4. Tambahkan tes jika berlaku
+5. Submit pull request
 
-## 📝 License
+## 📝 Lisensi
 
-This project is open source and available under the MIT License.
+Proyek ini open source dan tersedia di bawah MIT License.
 
-## 🙏 Acknowledgments
+## 🙏 Penghargaan
 
-- **Kaggle Dataset**: Cross-Site Scripting (XSS) Dataset for Deep Learning
-- **XGBoost**: Extreme Gradient Boosting framework
+- **Dataset Kaggle**: Cross-Site Scripting (XSS) Dataset for Deep Learning
+- **XGBoost**: Framework Extreme Gradient Boosting
 - **LightGBM**: Light Gradient Boosting Machine
-- **scikit-learn**: Machine learning library
+- **scikit-learn**: Library machine learning
 - **SMOTE**: Synthetic Minority Oversampling Technique
 
-## 📞 Support
+## 📞 Dukungan
 
-For questions or issues:
-1. Check the generated `xss_detection_report.txt` for detailed results
-2. Review the visualization files for insights
-3. Examine the console output for debugging information
+Untuk pertanyaan atau masalah:
+1. Periksa file `xss_detection_report.txt` yang dihasilkan untuk hasil detail
+2. Tinjau file visualisasi untuk wawasan
+3. Periksa output konsol untuk informasi debugging
 
-## 🔄 Future Enhancements
+## 🔄 Peningkatan Masa Depan
 
-- Deep learning models (LSTM, BERT)
-- Real-time web API deployment
-- Advanced feature engineering
-- Ensemble methods
-- Multi-language support
-- Performance optimization 
+- Model deep learning (LSTM, BERT)
+- Deployment API web real-time
+- Feature engineering lanjutan
+- Metode ensemble
+- Dukungan multi-bahasa
+- Optimasi performa 

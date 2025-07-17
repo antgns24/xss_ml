@@ -1,8 +1,21 @@
 #!/usr/bin/env python3
 """
-Data Loader for XSS Dataset from Kaggle
-Dataset: Cross-Site Scripting (XSS) Dataset for Deep Learning
-URL: https://www.kaggle.com/datasets/syedsaqlainhussain/cross-site-scripting-xss-dataset-for-deep-learning
+Pemuat dan Preprocessor Data untuk Sistem Deteksi XSS
+
+Modul ini menangani pemuatan dataset Kaggle XSS, preprocessing data,
+dan analisis data eksploratori dengan visualisasi komprehensif.
+
+Fitur:
+- Pemuatan dataset Kaggle dengan deteksi kolom otomatis
+- Generasi dataset sampel untuk pengujian
+- Analisis data eksploratori komprehensif
+- Visualisasi distribusi data dan statistik teks
+- Preprocessing dan pembersihan data
+
+Penggunaan:
+    loader = XSSDataLoader()
+    df = loader.load_kaggle_dataset('dataset.csv')
+    loader.explore_dataset(df)
 """
 
 import pandas as pd
@@ -15,17 +28,32 @@ warnings.filterwarnings('ignore')
 
 class XSSDataLoader:
     """
-    Data loader and preprocessor for XSS dataset
+    Pemuat Data untuk Sistem Deteksi XSS
+    
+    Kelas ini menangani semua aspek pemuatan data, preprocessing,
+    dan analisis eksploratori untuk dataset XSS.
+    
+    Methods:
+        load_kaggle_dataset: Muat dataset XSS dari Kaggle
+        create_sample_dataset: Buat dataset sampel untuk pengujian
+        explore_dataset: Lakukan analisis data eksploratori
+        preprocess_text: Bersihkan dan preprocess teks
     """
     
     def __init__(self):
+        """Inisialisasi XSSDataLoader."""
         self.data = None
         self.processed_data = None
     
     def load_kaggle_dataset(self, file_path: str) -> pd.DataFrame:
         """
-        Load the XSS dataset from Kaggle
-        Expected format: CSV with columns like 'Sentence' and 'Label'
+        Muat dataset XSS dari file CSV Kaggle.
+        
+        Args:
+            file_path (str): Path ke file dataset CSV
+            
+        Returns:
+            pd.DataFrame: DataFrame berisi data XSS yang telah diproses
         """
         try:
             # Try different common column names that might be in the dataset
@@ -66,7 +94,10 @@ class XSSDataLoader:
     
     def create_sample_dataset(self) -> pd.DataFrame:
         """
-        Create a sample XSS dataset for demonstration
+        Buat dataset sampel untuk pengujian dan demonstrasi.
+        
+        Returns:
+            pd.DataFrame: DataFrame berisi sampel data XSS dan normal
         """
         sample_data = {
             'Sentence': [
@@ -185,7 +216,10 @@ class XSSDataLoader:
     
     def explore_dataset(self, df: pd.DataFrame) -> None:
         """
-        Perform comprehensive exploratory data analysis
+        Lakukan analisis data eksploratori komprehensif.
+        
+        Args:
+            df (pd.DataFrame): DataFrame untuk dianalisis
         """
         print("\n" + "="*60)
         print("EXPLORATORY DATA ANALYSIS")

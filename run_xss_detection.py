@@ -1,7 +1,19 @@
 #!/usr/bin/env python3
 """
-Complete XSS Detection System Example
-This script demonstrates the full workflow of XSS detection using machine learning
+Workflow Lengkap untuk Sistem Deteksi XSS
+
+Script ini mendemonstrasikan penggunaan lengkap sistem deteksi XSS,
+termasuk pemuatan data, pelatihan model, evaluasi, dan prediksi interaktif.
+
+Fitur:
+- Workflow end-to-end otomatis
+- Mode prediksi interaktif
+- Evaluasi model komprehensif
+- Generasi laporan dan visualisasi
+- Pengujian dengan berbagai contoh XSS
+
+Penggunaan:
+    python3 run_xss_detection.py
 """
 
 import os
@@ -229,7 +241,10 @@ FILES GENERATED:
 
 def interactive_prediction_mode(detector):
     """
-    Interactive mode for testing XSS predictions
+    Mode prediksi interaktif untuk pengujian real-time.
+    
+    Args:
+        detector (XSSDetector): Instance detector yang sudah dilatih
     """
     print("\n🔮 INTERACTIVE PREDICTION MODE")
     print("-" * 50)
@@ -266,7 +281,14 @@ def interactive_prediction_mode(detector):
 
 def main():
     """
-    Main function with user interaction
+    Fungsi utama yang menjalankan workflow deteksi XSS lengkap.
+    
+    Workflow mencakup:
+    1. Pemuatan dan eksplorasi data
+    2. Preprocessing dan ekstraksi fitur
+    3. Pelatihan model multiple
+    4. Evaluasi dan perbandingan model
+    5. Mode prediksi interaktif (opsional)
     """
     try:
         # Run complete detection system

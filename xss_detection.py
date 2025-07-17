@@ -1,9 +1,24 @@
 #!/usr/bin/env python3
 """
-Comprehensive XSS Detection System using Machine Learning
-Author: AI Assistant
-Description: XSS detection using XGBoost and LightGBM with SMOTE for imbalanced data handling
-Dataset: Cross-Site Scripting (XSS) Dataset for Deep Learning from Kaggle
+Sistem Deteksi XSS Menggunakan Machine Learning
+
+Modul ini mengimplementasikan sistem deteksi XSS yang komprehensif menggunakan
+model machine learning XGBoost dan LightGBM dengan SMOTE untuk menangani data
+yang tidak seimbang.
+
+Fitur:
+- Ekstraksi fitur manual untuk pola XSS
+- Vektorisasi TF-IDF untuk fitur teks
+- Perbandingan model multiple (XGBoost, LightGBM, Random Forest)
+- Integrasi SMOTE untuk dataset tidak seimbang
+- Evaluasi dan visualisasi komprehensif
+- Persistensi dan pemuatan model
+
+Penggunaan:
+    detector = XSSDetector()
+    X, y = detector.preprocess_data(df)
+    results = detector.train_models(X, y)
+    detector.evaluate_models(results)
 """
 
 import pandas as pd
@@ -42,10 +57,20 @@ warnings.filterwarnings('ignore')
 
 class XSSDetector:
     """
-    Comprehensive XSS Detection System using Machine Learning
+    Sistem Deteksi XSS menggunakan Machine Learning
+    
+    Kelas ini mengimplementasikan sistem deteksi XSS yang lengkap dengan
+    feature engineering, pelatihan model, dan evaluasi.
+    
+    Attributes:
+        models (dict): Dictionary model terlatih
+        tfidf_vectorizer: Vectorizer TF-IDF untuk fitur teks
+        feature_names (list): Nama-nama fitur untuk interpretasi
+        is_trained (bool): Status apakah model sudah dilatih
     """
     
     def __init__(self):
+        """Inisialisasi XSSDetector dengan konfigurasi default."""
         self.vectorizer = None
         self.scaler = StandardScaler()
         self.label_encoder = LabelEncoder()

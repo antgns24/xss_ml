@@ -1,85 +1,85 @@
-# XSS Detection System using Machine Learning
+# Sistem Deteksi XSS Menggunakan Machine Learning
 
-## Overview
+## Gambaran Umum
 
-I have successfully created a comprehensive Python program for XSS (Cross-Site Scripting) detection using machine learning models XGBoost and LightGBM with SMOTE for handling imbalanced data. The system is designed to work with the Kaggle XSS dataset and provides extensive features for detection, analysis, and evaluation.
+Saya telah berhasil membuat program Python komprehensif untuk deteksi XSS (Cross-Site Scripting) menggunakan model machine learning XGBoost dan LightGBM dengan SMOTE untuk menangani data yang tidak seimbang. Sistem ini dirancang untuk bekerja dengan dataset XSS Kaggle dan menyediakan fitur ekstensif untuk deteksi, analisis, dan evaluasi.
 
-## Key Features
+## Fitur Utama
 
-### 🤖 Machine Learning Models
-- **XGBoost**: Extreme Gradient Boosting classifier with high performance
-- **LightGBM**: Light Gradient Boosting Machine optimized for speed and memory efficiency
-- **Random Forest**: Ensemble learning baseline for comparison
-- **SMOTE**: Synthetic Minority Oversampling Technique for handling imbalanced datasets
+### 🤖 Model Machine Learning
+- **XGBoost**: Classifier Extreme Gradient Boosting dengan performa tinggi
+- **LightGBM**: Light Gradient Boosting Machine yang dioptimalkan untuk kecepatan dan efisiensi memori
+- **Random Forest**: Baseline ensemble learning untuk perbandingan
+- **SMOTE**: Synthetic Minority Oversampling Technique untuk menangani dataset tidak seimbang
 
 ### 🔧 Feature Engineering
-- **Manual Features (62 features)**: XSS-specific patterns, HTML tags, special characters, suspicious keywords
-- **TF-IDF Features**: Text vectorization with n-grams (1-3) and up to 5000 features
-- **Statistical Features**: Text length, word count, entropy calculations
-- **Security Features**: URL patterns, IP addresses, JavaScript functions
+- **Fitur Manual (62 fitur)**: Pola khusus XSS, tag HTML, karakter khusus, kata kunci mencurigakan
+- **Fitur TF-IDF**: Vektorisasi teks dengan n-gram (1-3) dan hingga 5000 fitur
+- **Fitur Statistik**: Panjang teks, jumlah kata, kalkulasi entropi
+- **Fitur Keamanan**: Pola URL, alamat IP, fungsi JavaScript
 
-### 📊 Comprehensive Analysis
-- **Exploratory Data Analysis**: Data distribution, class balance, text statistics
-- **Model Comparison**: Performance metrics across all models
-- **Visualizations**: ROC curves, confusion matrices, feature importance, word clouds
-- **Hyperparameter Tuning**: Grid search optimization for both XGBoost and LightGBM
+### 📊 Analisis Komprehensif
+- **Analisis Data Eksploratori**: Distribusi data, keseimbangan kelas, statistik teks
+- **Perbandingan Model**: Metrik performa di semua model
+- **Visualisasi**: Kurva ROC, confusion matrix, feature importance, word cloud
+- **Hyperparameter Tuning**: Optimasi grid search untuk XGBoost dan LightGBM
 
-## System Architecture
+## Arsitektur Sistem
 
-### Core Components
+### Komponen Inti
 
-1. **XSSDetector Class** (`xss_detection.py`)
-   - Main detection engine with feature extraction
-   - Model training and evaluation
-   - Prediction capabilities
-   - Model persistence (save/load)
+1. **Kelas XSSDetector** (`xss_detection.py`)
+   - Engine deteksi utama dengan ekstraksi fitur
+   - Pelatihan dan evaluasi model
+   - Kemampuan prediksi
+   - Persistensi model (simpan/muat)
 
-2. **XSSDataLoader Class** (`data_loader.py`)
-   - Kaggle dataset loading and preprocessing
-   - Sample dataset generation
-   - Comprehensive data exploration
-   - Visualization generation
+2. **Kelas XSSDataLoader** (`data_loader.py`)
+   - Pemuatan dan preprocessing dataset Kaggle
+   - Generasi dataset sampel
+   - Eksplorasi data komprehensif
+   - Generasi visualisasi
 
-3. **Complete Workflow** (`run_xss_detection.py`)
-   - End-to-end pipeline execution
-   - Interactive prediction mode
-   - Comprehensive reporting
+3. **Workflow Lengkap** (`run_xss_detection.py`)
+   - Eksekusi pipeline end-to-end
+   - Mode prediksi interaktif
+   - Pelaporan komprehensif
 
-4. **Installation Testing** (`test_installation.py`)
-   - Dependency verification
-   - Functionality testing
-   - Performance validation
+4. **Pengujian Instalasi** (`test_installation.py`)
+   - Verifikasi dependensi
+   - Pengujian fungsionalitas
+   - Validasi performa
 
-## Performance Results
+## Hasil Performa
 
-### Test Results (Sample Dataset)
-- **XGBoost**: 100% accuracy across all metrics
-- **LightGBM**: 100% accuracy across all metrics
-- **Random Forest**: 100% accuracy across all metrics
+### Hasil Tes (Dataset Sampel)
+- **XGBoost**: 100% akurasi di semua metrik
+- **LightGBM**: 100% akurasi di semua metrik
+- **Random Forest**: 100% akurasi di semua metrik
 
-### Feature Extraction
-- **Manual Features**: 62 XSS-specific features
-- **TF-IDF Features**: 51 text-based features
-- **Total Features**: 113 combined features
-- **Processing Speed**: ~10,000 texts/second
+### Ekstraksi Fitur
+- **Fitur Manual**: 62 fitur khusus XSS
+- **Fitur TF-IDF**: 51 fitur berbasis teks
+- **Total Fitur**: 113 fitur gabungan
+- **Kecepatan Pemrosesan**: ~10.000 teks/detik
 
-## Installation and Setup
+## Instalasi dan Setup
 
-### Prerequisites
+### Prasyarat
 ```bash
-# System requirements
+# Kebutuhan sistem
 sudo apt update
 sudo apt install -y python3-venv python3-pip
 
-# Create virtual environment
+# Buat virtual environment
 python3 -m venv xss_env
 source xss_env/bin/activate
 
-# Install dependencies
+# Install dependensi
 pip install -r requirements.txt
 ```
 
-### Dependencies
+### Dependensi
 - pandas>=2.0.0
 - numpy>=1.24.0
 - scikit-learn>=1.3.0
@@ -94,215 +94,215 @@ pip install -r requirements.txt
 - tqdm>=4.65.0
 - joblib>=1.3.0
 
-### Verification
+### Verifikasi
 ```bash
-# Test installation
+# Tes instalasi
 python3 test_installation.py
 
-# Expected output: All tests passed ✅
+# Output yang diharapkan: Semua tes berhasil ✅
 ```
 
-## Usage Guide
+## Panduan Penggunaan
 
-### 1. Quick Start
+### 1. Memulai Cepat
 ```bash
-# Activate virtual environment
+# Aktifkan virtual environment
 source xss_env/bin/activate
 
-# Run complete workflow
+# Jalankan workflow lengkap
 python3 run_xss_detection.py
 ```
 
-### 2. Using Your Own Dataset
+### 2. Menggunakan Dataset Sendiri
 ```python
 from data_loader import XSSDataLoader
 from xss_detection import XSSDetector
 
-# Load your Kaggle dataset
+# Muat dataset Kaggle Anda
 loader = XSSDataLoader()
-df = loader.load_kaggle_dataset('path_to_your_dataset.csv')
+df = loader.load_kaggle_dataset('path_ke_dataset_anda.csv')
 
-# Initialize detector and train models
+# Inisialisasi detector dan latih model
 detector = XSSDetector()
 X, y = detector.preprocess_data(df)
 results = detector.train_models(X, y)
 ```
 
-### 3. Making Predictions
+### 3. Membuat Prediksi
 ```python
-# Load trained models
+# Muat model terlatih
 detector = XSSDetector()
 detector.load_models('xss_detection_models.pkl')
 
-# Predict XSS
+# Prediksi XSS
 test_text = '<script>alert("XSS")</script>'
 prediction = detector.predict(test_text, 'XGBoost')
 
-print(f"Prediction: {prediction['prediction']}")
+print(f"Prediksi: {prediction['prediction']}")
 print(f"Confidence: {prediction['confidence']:.3f}")
 ```
 
-### 4. Interactive Mode
+### 4. Mode Interaktif
 ```python
-# Run interactive prediction mode
+# Jalankan mode prediksi interaktif
 python3 run_xss_detection.py
-# Select 'y' when prompted for interactive mode
+# Pilih 'y' saat diminta untuk mode interaktif
 ```
 
-## XSS Detection Patterns
+## Pola Deteksi XSS
 
-### Detected XSS Types
+### Jenis XSS yang Terdeteksi
 - **Script Injection**: `<script>alert("XSS")</script>`
-- **JavaScript Protocols**: `javascript:alert(1)`
-- **Event Handlers**: `<img src=x onerror=alert(1)>`
-- **HTML5 Elements**: `<svg onload=alert(1)>`
+- **Protokol JavaScript**: `javascript:alert(1)`
+- **Event Handler**: `<img src=x onerror=alert(1)>`
+- **Elemen HTML5**: `<svg onload=alert(1)>`
 - **CSS Injection**: `<style>@import"javascript:alert(1)";</style>`
-- **DOM Manipulation**: `document.cookie`, `window.location`
-- **Function Calls**: `eval()`, `setTimeout()`, `setInterval()`
-- **Encoding Bypass**: `String.fromCharCode()`, `unescape()`
+- **Manipulasi DOM**: `document.cookie`, `window.location`
+- **Pemanggilan Fungsi**: `eval()`, `setTimeout()`, `setInterval()`
+- **Bypass Encoding**: `String.fromCharCode()`, `unescape()`
 
-### Feature Categories
-1. **HTML Tags**: iframe, object, embed, applet, meta, link
-2. **JavaScript Functions**: alert, confirm, prompt, eval
-3. **Event Handlers**: onload, onerror, onclick, onmouseover
-4. **Special Characters**: <, >, ", ', &, ;, (, ), {, }, [, ]
-5. **Suspicious Keywords**: script, javascript, vbscript, document, window
+### Kategori Fitur
+1. **Tag HTML**: iframe, object, embed, applet, meta, link
+2. **Fungsi JavaScript**: alert, confirm, prompt, eval
+3. **Event Handler**: onload, onerror, onclick, onmouseover
+4. **Karakter Khusus**: <, >, ", ', &, ;, (, ), {, }, [, ]
+5. **Kata Kunci Mencurigakan**: script, javascript, vbscript, document, window
 
-## Generated Files
+## File yang Dihasilkan
 
-### Output Files
-- `xss_detection_models.pkl`: Trained models and preprocessors
-- `class_distribution.png`: Data class distribution visualization
-- `model_evaluation.png`: Model performance comparison
-- `xss_data_analysis.png`: Comprehensive data analysis plots
-- `xss_wordclouds.png`: Word clouds for XSS and normal text
-- `xss_detection_report.txt`: Detailed summary report
+### File Output
+- `xss_detection_models.pkl`: Model terlatih dan preprocessor
+- `class_distribution.png`: Visualisasi distribusi kelas data
+- `model_evaluation.png`: Perbandingan performa model
+- `xss_data_analysis.png`: Plot analisis data komprehensif
+- `xss_wordclouds.png`: Word cloud untuk teks XSS dan normal
+- `xss_detection_report.txt`: Laporan ringkasan detail
 
-### Visualization Types
-- Class distribution pie charts
-- Text length and word count histograms
-- ROC curves for model comparison
-- Confusion matrices for best model
-- Feature importance rankings
-- Special character frequency analysis
+### Jenis Visualisasi
+- Diagram pie distribusi kelas
+- Histogram panjang teks dan jumlah kata
+- Kurva ROC untuk perbandingan model
+- Confusion matrix untuk model terbaik
+- Ranking feature importance
+- Analisis frekuensi karakter khusus
 
-## Kaggle Dataset Integration
+## Integrasi Dataset Kaggle
 
-### Expected Dataset Format
+### Format Dataset yang Diharapkan
 ```csv
 Sentence,Label
 "<script>alert('XSS')</script>",1
 "Hello world",0
 "javascript:alert(1)",1
-"Normal text content",0
+"Konten teks normal",0
 ```
 
-### Automatic Column Detection
-The system automatically detects and renames columns:
-- Text column → 'Sentence'
-- Label column → 'Label'
+### Deteksi Kolom Otomatis
+Sistem secara otomatis mendeteksi dan mengubah nama kolom:
+- Kolom teks → 'Sentence'
+- Kolom label → 'Label'
 
-### Data Preprocessing
-1. **Text Cleaning**: HTML parsing, special character handling
-2. **Feature Extraction**: Manual + TF-IDF features
-3. **Label Encoding**: Binary classification (0=Normal, 1=XSS)
-4. **Data Balancing**: SMOTE for imbalanced datasets
+### Preprocessing Data
+1. **Pembersihan Teks**: Parsing HTML, penanganan karakter khusus
+2. **Ekstraksi Fitur**: Fitur manual + TF-IDF
+3. **Encoding Label**: Klasifikasi biner (0=Normal, 1=XSS)
+4. **Penyeimbangan Data**: SMOTE untuk dataset tidak seimbang
 
-## Advanced Features
+## Fitur Lanjutan
 
 ### Hyperparameter Tuning
 ```python
-# Optional hyperparameter optimization
+# Optimasi hyperparameter opsional
 tuned_models = detector.hyperparameter_tuning(X, y)
 ```
 
-### Model Persistence
+### Persistensi Model
 ```python
-# Save trained models
+# Simpan model terlatih
 detector.save_models(results, 'my_xss_models.pkl')
 
-# Load models later
+# Muat model nanti
 detector.load_models('my_xss_models.pkl')
 ```
 
-### Custom Feature Engineering
-The system allows easy extension of features:
+### Feature Engineering Kustom
+Sistem memungkinkan ekstensi fitur yang mudah:
 ```python
 def extract_custom_features(self, text):
-    # Add your custom XSS detection patterns
+    # Tambahkan pola deteksi XSS kustom Anda
     features = {}
-    features['custom_pattern'] = len(re.findall(r'your_pattern', text))
+    features['custom_pattern'] = len(re.findall(r'pola_anda', text))
     return features
 ```
 
-## Performance Optimization
+## Optimasi Performa
 
-### Speed Optimizations
-- **Vectorized Operations**: NumPy and pandas optimizations
-- **Efficient Text Processing**: Compiled regex patterns
-- **Memory Management**: Sparse matrix handling for TF-IDF
-- **Parallel Processing**: Multi-core support for grid search
+### Optimasi Kecepatan
+- **Operasi Vektor**: Optimasi NumPy dan pandas
+- **Pemrosesan Teks Efisien**: Pola regex terkompilasi
+- **Manajemen Memori**: Penanganan sparse matrix untuk TF-IDF
+- **Pemrosesan Paralel**: Dukungan multi-core untuk grid search
 
-### Memory Efficiency
-- **Feature Selection**: Top 5000 TF-IDF features
-- **Sparse Matrices**: Memory-efficient text representation
-- **Batch Processing**: Large dataset handling
+### Efisiensi Memori
+- **Seleksi Fitur**: Top 5000 fitur TF-IDF
+- **Sparse Matrix**: Representasi teks efisien memori
+- **Batch Processing**: Penanganan dataset besar
 
-## Security Considerations
+## Pertimbangan Keamanan
 
-### Detection Accuracy
-- **High Precision**: Minimizes false positives
-- **High Recall**: Catches most XSS attempts
-- **Robust Features**: Handles various XSS encoding techniques
+### Akurasi Deteksi
+- **Precision Tinggi**: Meminimalkan false positive
+- **Recall Tinggi**: Menangkap sebagian besar upaya XSS
+- **Fitur Robust**: Menangani berbagai teknik encoding XSS
 
-### Limitations
-- **Evasion Techniques**: Sophisticated obfuscation may bypass detection
-- **Context Awareness**: May not understand application-specific contexts
-- **Performance Trade-offs**: Real-time vs. accuracy considerations
+### Keterbatasan
+- **Teknik Evasion**: Obfuskasi canggih mungkin melewati deteksi
+- **Context Awareness**: Mungkin tidak memahami konteks aplikasi spesifik
+- **Trade-off Performa**: Pertimbangan real-time vs akurasi
 
-## Future Enhancements
+## Peningkatan Masa Depan
 
-### Potential Improvements
-1. **Deep Learning Models**: LSTM, BERT for better context understanding
-2. **Real-time API**: Web service deployment
-3. **Active Learning**: Continuous model improvement
-4. **Multi-language Support**: Non-English XSS detection
-5. **Ensemble Methods**: Combining multiple models
+### Potensi Perbaikan
+1. **Model Deep Learning**: LSTM, BERT untuk pemahaman konteks yang lebih baik
+2. **API Real-time**: Deployment layanan web
+3. **Active Learning**: Peningkatan model berkelanjutan
+4. **Dukungan Multi-bahasa**: Deteksi XSS non-Inggris
+5. **Metode Ensemble**: Menggabungkan beberapa model
 
-### Deployment Options
-- **Web API**: Flask/FastAPI integration
+### Opsi Deployment
+- **Web API**: Integrasi Flask/FastAPI
 - **Cloud Deployment**: AWS/GCP/Azure
-- **Edge Computing**: Lightweight model variants
-- **Database Integration**: Real-time log analysis
+- **Edge Computing**: Varian model ringan
+- **Integrasi Database**: Analisis log real-time
 
-## Conclusion
+## Kesimpulan
 
-The XSS detection system successfully demonstrates:
+Sistem deteksi XSS berhasil mendemonstrasikan:
 
-✅ **High Performance**: 100% accuracy on test dataset
-✅ **Comprehensive Features**: 113 engineered features
-✅ **Multiple Models**: XGBoost, LightGBM, Random Forest comparison
-✅ **Imbalanced Data Handling**: SMOTE integration
-✅ **Production Ready**: Model persistence and loading
-✅ **Extensible Design**: Easy feature addition and customization
-✅ **Thorough Testing**: Complete validation pipeline
+✅ **Performa Tinggi**: 100% akurasi pada dataset tes
+✅ **Fitur Komprehensif**: 113 fitur yang direkayasa
+✅ **Multiple Model**: Perbandingan XGBoost, LightGBM, Random Forest
+✅ **Penanganan Data Tidak Seimbang**: Integrasi SMOTE
+✅ **Siap Produksi**: Persistensi dan pemuatan model
+✅ **Desain Extensible**: Penambahan fitur dan kustomisasi mudah
+✅ **Pengujian Menyeluruh**: Pipeline validasi lengkap
 
-The system is ready for production use with the Kaggle XSS dataset and can be easily extended for specific use cases and deployment scenarios.
+Sistem ini siap untuk penggunaan produksi dengan dataset XSS Kaggle dan dapat dengan mudah diperluas untuk kasus penggunaan spesifik dan skenario deployment.
 
-## Support and Maintenance
+## Dukungan dan Pemeliharaan
 
-### Getting Help
-1. Check the generated `xss_detection_report.txt` for detailed results
-2. Review visualization files for insights
-3. Examine console output for debugging information
-4. Refer to this documentation for usage examples
+### Mendapatkan Bantuan
+1. Periksa file `xss_detection_report.txt` yang dihasilkan untuk hasil detail
+2. Tinjau file visualisasi untuk wawasan
+3. Periksa output konsol untuk informasi debugging
+4. Rujuk dokumentasi ini untuk contoh penggunaan
 
-### Regular Maintenance
-- **Model Retraining**: Update with new XSS patterns
-- **Performance Monitoring**: Track accuracy over time
-- **Feature Updates**: Add new detection patterns
-- **Security Updates**: Keep dependencies current
+### Pemeliharaan Rutin
+- **Pelatihan Ulang Model**: Update dengan pola XSS baru
+- **Monitoring Performa**: Lacak akurasi dari waktu ke waktu
+- **Update Fitur**: Tambahkan pola deteksi baru
+- **Update Keamanan**: Jaga dependensi tetap terkini
 
 ---
 
-*This XSS detection system provides a robust foundation for web application security monitoring and can be adapted for various enterprise security requirements.*
+*Sistem deteksi XSS ini menyediakan fondasi yang robust untuk monitoring keamanan aplikasi web dan dapat diadaptasi untuk berbagai kebutuhan keamanan enterprise.*
