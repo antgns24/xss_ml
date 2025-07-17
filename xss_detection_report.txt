@@ -1,0 +1,54 @@
+
+XSS DETECTION SYSTEM - SUMMARY REPORT
+==================================================
+
+DATASET INFORMATION:
+- Total samples: 102
+- XSS samples: 51
+- Normal samples: 51
+- Class balance: 50.0% XSS, 50.0% Normal
+
+MODEL PERFORMANCE:
+
+XGBoost:
+  - Accuracy: 1.0000
+  - Precision: 1.0000
+  - Recall: 1.0000
+  - F1-Score: 1.0000
+  - ROC AUC: 1.0000
+
+LightGBM:
+  - Accuracy: 1.0000
+  - Precision: 1.0000
+  - Recall: 1.0000
+  - F1-Score: 1.0000
+  - ROC AUC: 1.0000
+
+Random Forest:
+  - Accuracy: 1.0000
+  - Precision: 1.0000
+  - Recall: 1.0000
+  - F1-Score: 1.0000
+  - ROC AUC: 1.0000
+
+BEST MODEL: XGBoost
+- Best F1-Score: 1.0000
+
+FEATURES USED:
+- Manual feature engineering (XSS patterns, HTML tags, special characters, etc.)
+- TF-IDF vectorization (up to 5000 features)
+- SMOTE for handling imbalanced data
+
+RECOMMENDATIONS:
+1. The XGBoost model shows the best performance for XSS detection
+2. Consider collecting more diverse XSS samples for better generalization
+3. Implement real-time monitoring using the trained models
+4. Regular model retraining with new XSS patterns is recommended
+5. Consider ensemble methods for improved robustness
+
+FILES GENERATED:
+- xss_detection_models.pkl (trained models)
+- class_distribution.png (data visualization)
+- model_evaluation.png (model comparison)
+- xss_data_analysis.png (data analysis)
+- xss_wordclouds.png (word clouds)
